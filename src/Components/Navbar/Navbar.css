@@ -1,0 +1,100 @@
+.navbar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 6px;
+    box-shadow: 0 1px 3px -2px black; 
+}
+.nav-siteName p{
+    color: rgb(165, 211, 67);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    margin-top: 2px;
+
+}
+
+.nav-divider{
+    border: none;
+    border-top: 1px solid gray;
+    width: 100;
+}
+.nav-menu{
+    display: flex;
+    align-items: right;
+    margin-left: 450px;
+    list-style: none;
+    gap: 15px;
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.nav-menu li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    cursor: pointer;
+}
+
+.nav-signup-cart{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 200px;
+
+}
+
+.nav-signup-cart button{
+    margin-top: 5px;
+    width: 85px;
+    height: 25px;
+    outline: none;
+    border: none;
+    border-radius: 75px;
+    color: black;
+    font-size: 14px;
+    font-weight: 700;
+    background: #d9d9d9;
+    cursor: pointer;
+
+}
+
+.nav-signup-cart button:active{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-signup-cart img{
+    width: 2%;
+    height: 100%;
+
+}
+
+.nav-signup-cart input{
+    margin-top: 9px;
+    margin-right: 5px;
+    width: 2950px;
+    height: 30px;
+    outline: none;
+    border: none;
+    border-radius: 75px;
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+    background: #e7e7e7;
+    cursor: pointer;
+
+}
+
+
+
+.nav-menu hr{
+    border: none;
+    width: 80%;
+    height: 3px;
+    border-radius: 10px;
+    background: gray;
+
+}

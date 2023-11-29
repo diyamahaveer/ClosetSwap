@@ -1,46 +1,42 @@
 .hero{
     height: 100vh;
+    width: 100hv;
     background: white;
     display: flex;
 
 }
 
-.hero-left{
-    flex: 1;
+.hero-latest-btn{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20 px;
-    padding-left: 180px;
-    line-height: 1.1;
-
-}
-
-.hero-left h2{
-    color: black;
-    font-size: 24px;
-    font-weight: 400;
-}
-
-.hero-left p{
-    color: black;
-    font-size: 100px;
-    font-weight: 300;
-
-}
-
-hero-latest-btn{
-    display: flex;
+    position: absolute;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-    width: 310px;
-    height: 70px;
+    gap: 30px;
+    width: 100px;
+    height: 35px;
     border-radius: 75px;
-    margin-top: 30px;
-    background: red;
+    margin-top: 240px;
+    margin-left: 640px;
+    background: #bdbdbd;;
     color: white;
-    font-size: 22px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
+
+}
+
+.hero-right{ 
+    /* for div */
+    display: flex;
+    height: 300px;
+    width: 100%;
+
+}
+
+.hero-right2{
+    /* for the img  */
+    display: flex;
+    height: 300px;
+    width: 100%;
+    margin: 10px;
 
 }

@@ -7,6 +7,7 @@ import Shop from './Pages/Shop';
 import ShopCategory from './Pages/ShopCategory';
 import Products from './Components/Products/Products';
 import Tile from './Components/Tile/Tile';
+import MyFavorites from './Pages/MyFavorites';
 import './Components/Tile/Tile';
 
 function App() {
@@ -14,8 +15,6 @@ function App() {
     <div>
       <BrowserRouter> 
         <Navbar/>
-        <Products/>
-        {/* <Tile/> */}
         <Routes>
           <Route path = '/'element={<Shop/>}/>
           <Route path = '/menswear'element={<ShopCategory category = "mens"/>}/>
@@ -26,8 +25,10 @@ function App() {
             <Route path = ':productID' element = {<Product/>}/>
           </Route> */}
           <Route path = '/cart' element = {<Cart/>}/>
+          <Route path = '/myfavorites' element = {<MyFavorites/>}/>
           <Route path = '/signup' element = {<LoginSignup/>}/>
         </Routes>
+        <Products/>
       </BrowserRouter>
       
     </div>

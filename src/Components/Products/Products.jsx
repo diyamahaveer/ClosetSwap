@@ -3,6 +3,7 @@ import './Products.css';
 import { supabase } from '../../supabaseClient';
 import Tile from '../Tile/Tile';
 import image from '../Assets/product_1.jpeg';
+import Shop from '../../Pages/Shop';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -26,6 +27,7 @@ const Products = () => {
 
   return (
 <div>
+  <Shop/>
   <select onChange={(e) => setpriceFilter(e.target.value)}>
     <option value="0">$0</option>
     <option value="5">$5</option>

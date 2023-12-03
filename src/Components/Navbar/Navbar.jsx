@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import heart_icon from '../Assets/heart_icon.png'
 import search_icon from '../Assets/search_icon.png'
 
+
 const Navbar = () => {
 
     const [menu, setMenu] = useState("none");
@@ -25,7 +26,7 @@ const Navbar = () => {
                 />
                 <img src={heart_icon} alt="" style={{ width: '20px' }} />
                 <Link to='/cart'><img src={shoppingcart_icon} alt="" style={{ width: '20px' }} /></Link>
-                <Link to='/signup'><button>Sign Up</button></Link>
+                <Link to='/loginintro'><button>Sign Up</button></Link>
             </div>
             <section className="nav-product list">
                 <ul className="nav-menu">

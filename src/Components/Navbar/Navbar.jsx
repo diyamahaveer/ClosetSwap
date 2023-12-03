@@ -25,7 +25,7 @@ const Navbar = () => {
                 />
                 <img src={heart_icon} alt="" style={{ width: '20px' }} />
                 <Link to='/cart'><img src={shoppingcart_icon} alt="" style={{ width: '20px' }} /></Link>
-                <Link to='/login'><button>Sign Up</button></Link>
+                <Link to='/loginsignup'><button>Sign Up</button></Link>
             </div>
             <section className="nav-product list">
                 <ul className="nav-menu">

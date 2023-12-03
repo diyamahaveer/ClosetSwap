@@ -16,7 +16,7 @@ function App() {
       <BrowserRouter> 
         <Navbar/>
         <Routes>
-          <Route path = '/'element={<Shop/>}/>
+          <Route path = '/'element={<Products/>}/>
           <Route path = '/menswear'element={<ShopCategory category = "mens"/>}/>
           <Route path = '/womenswear'element={<ShopCategory category = "womens"/>}/>
           <Route path = '/accessories'element={<ShopCategory category = "accessories"/>}/>
@@ -28,7 +28,6 @@ function App() {
           <Route path = '/myfavorites' element = {<MyFavorites/>}/>
           <Route path = '/signup' element = {<LoginSignup/>}/>
         </Routes>
-        <Products/>
       </BrowserRouter>
       
     </div>

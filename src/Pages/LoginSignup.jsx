@@ -13,15 +13,15 @@ const LoginSignup = () => {
           <h4> Name </h4>
           <input type="text" placeholder='Enter your name' />
           <h4> Email Address </h4>
-          <input type="email" placeholder='Enter your email' />
+          <input type="email" placeholder='Enter your email' required/>
           <h4> UM-ID </h4>
-          <input type="id" placeholder='Enter your UM-ID' />
+          <input type="id" placeholder='Enter your UM-ID' required/>
           <h4> Password </h4>
-          <input type="password" placeholder='Enter your password' />
+          <input type="password" placeholder='Enter your password' required/>
         </div>
         <div className="loginsignup-agree">
           <input type="checkbox" name='' id='' />
-          <p>I agree to the terms and policy</p>
+          <p>I agree to the terms & conditions</p>
         </div>
         <button>Next</button>
         <p className="loginsignup-login">Already have an account? <span>Login here</span></p>

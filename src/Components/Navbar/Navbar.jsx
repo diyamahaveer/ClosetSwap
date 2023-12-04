@@ -21,7 +21,7 @@ const Navbar = () => {
                 <input
                     type="text"
                     className="search-input"
-                    placeholder="Seach here"
+                    placeholder="Search"
 
                 />
                 <img src={heart_icon} alt="" style={{ width: '20px' }} />

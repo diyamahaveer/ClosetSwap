@@ -32,11 +32,12 @@ const Products = () => {
       const matchesSearch = searchInput === '' || product.name.toLowerCase().includes(searchInput.toLowerCase());
       const matchesPrice = priceFilter === '0' || parseInt(product.price) <= parseInt(priceFilter);
       const matchesSize = sizeFilter === '' || product.size === sizeFilter;
-      return matchesSearch && matchesPrice && matchesSize;
+      const matchesColor = colorFilter === '' || product.color === colorFilter;
+      return matchesSearch && matchesPrice && matchesSize && matchesColor;
     });
 
     setFilteredProducts(filtered);
-  }, [searchInput, priceFilter, sizeFilter, products]);
+  }, [searchInput, priceFilter, sizeFilter, colorFilter, products]);
 
   return (
     <div>
@@ -92,6 +93,7 @@ const Products = () => {
                 price={product.price}
                 size={product.size}
                 date={product.date}
+                color={product.color}
                 image={image}
               />
             ))}

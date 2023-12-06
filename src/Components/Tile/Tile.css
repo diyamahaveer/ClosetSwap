@@ -14,12 +14,14 @@
   }
 
   .tile-name{
+    font-weight: 600px;
 
 
   }
 
   .tile-price{
     margin-top: -10px;
+    font-weight: 900px;
 
   }
 

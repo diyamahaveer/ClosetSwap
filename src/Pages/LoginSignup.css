@@ -1,3 +1,19 @@
+.search{
+    position: absolute;
+    top: 17px; 
+    left: 210px;
+    border: none;
+    width: 69%;
+    height: 35px;
+    border-radius: 75px;
+    box-shadow: none;
+    text-align: left;
+    padding: 0 20px; 
+    font-size: 14px;
+    font-weight: 500;
+    background: #e7e7e7;
+    cursor: pointer;
+  }
 .loginsignup{
     width: 100%;
     height: 80vh;

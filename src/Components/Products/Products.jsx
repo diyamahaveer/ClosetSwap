@@ -4,6 +4,7 @@ import { supabase } from '../../supabaseClient';
 import Tile from '../Tile/Tile';
 import image from '../Assets/product_1.jpeg';
 import Shop from '../../Pages/Shop';
+import Navbar from '../Navbar/Navbar'
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -44,6 +45,13 @@ const Products = () => {
       <Shop />
       <div className='products'>
         <div className='filter'>
+        <input
+            type="text"
+            placeholder="Search"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            className='custom-select'
+          />
           <select onChange={(e) => setPriceFilter(e.target.value)} className='custom-select'>
             <option value="0">Price</option>
             <option value="5">$5</option>
@@ -75,13 +83,6 @@ const Products = () => {
             <option value="Multi">Multi</option>
             {/* Add more categories as needed */}
           </select>
-          <input
-            type="text"
-            placeholder="Search"
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
-            className='custom-select'
-          />
         </div>
         <div className="tiles-wrapper">
           <div className='tile-container'>

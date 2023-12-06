@@ -10,7 +10,8 @@
     font-size: 30px;
     font-weight: 600;
     margin-bottom: 3px;
-    margin-top: 2px;
+    margin-top: 10px;
+    margin-left: 5px;
     background: white;
     border: none;
 
@@ -18,7 +19,7 @@
 
 .nav-divider{
     border: none;
-    border-top: 1px solid gray;
+    border-top: 1px solid white;
     width: 100;
 }
 .nav-menu{
@@ -30,6 +31,7 @@
     color: black;
     font-size: 16px;
     font-weight: 600;
+    margin-top: -25px;
 }
 
 .nav-menu li{
@@ -37,7 +39,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3px;
+    gap: 2px;
     cursor: pointer;
     color: black;
 }
@@ -45,9 +47,10 @@
 .nav-signup-cart{
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-left: 200px;
-
+    gap: 6px;
+    margin-left: 1260px;
+    margin-right: 5px;
+    transform: translateY(-34.5px); /* Adjust the value as needed */
 }
 
 .nav-signup-cart button{
@@ -65,8 +68,35 @@
 
 }
 
-.nav-signup-cart button:active{
+.nav-signup-cart button:hover{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.nav-signup-cart button:active{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+.favorites{
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-top: 4px;
+    border-radius: 20px;
+}
+.favorites:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.favorites:active{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+.cart{
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-top: 4px;
+    border-radius: 20px;
+}
+.cart:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.cart:active{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
 .nav-signup-cart img{
@@ -99,6 +129,7 @@
     height: 3px;
     border-radius: 10px;
     background: gray;
+    
 
 }
 
@@ -110,6 +141,7 @@
 .nav-menu a {
     color: #862F83; /* Sets the text color to black */
     /* Other styles can go here */
+    margin-top: 7px;
   }
   
   /* Optional: If you want to remove the underline from links */

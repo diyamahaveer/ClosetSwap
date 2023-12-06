@@ -7,6 +7,11 @@ import { Link } from 'react-router-dom';
 const LoginIntro = () => {
     return ( 
         <div>
+            <input
+            type="text"
+            placeholder="Search"
+            className='search'
+          />
             <div className = 'loginintro'>
                 <div className = 'loginintro-info'>
                     <h1> Get started with ClosetSwap </h1>  

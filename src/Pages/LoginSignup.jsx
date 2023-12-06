@@ -3,6 +3,12 @@ import './LoginSignup.css'
 
 const LoginSignup = () => {
   return (
+  <div>
+    <input
+            type="text"
+            placeholder="Search"
+            className='search'
+          />
     <div className='loginsignup'>
       <div className='loginsignup-container'>
         <div className = 'loginsignup-toptext'>
@@ -27,6 +33,7 @@ const LoginSignup = () => {
         <p className="loginsignup-login">Already have an account? <span>Login here</span></p>
       </div>
     </div>
+  </div>
   )
 }
 

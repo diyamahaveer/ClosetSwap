@@ -1,7 +1,7 @@
 import React from 'react'
-import './Cart.css'
+import './Favorites.css'
 
-const Cart = () => {
+const Favorites = () => {
   return (
     <div>
          <input
@@ -13,4 +13,4 @@ const Cart = () => {
   )
 }
 
-export default Cart
+export default Favorites

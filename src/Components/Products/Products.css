@@ -20,13 +20,14 @@
 
 
 .products{
-  margin-top: -30%;
+  margin-top: -475px;
 }
 .filter{
   margin-left: 11px;
   margin-bottom: 20px;
 }
 .custom-select{
+  margin-top:10px;
   height: 40px;
   width: 140px;
   text-align: center;
@@ -37,6 +38,7 @@
 }
 
 .custom-select2{
+  margin-top:10px;
   height: 40px;
   width: 140px;
   text-align: center;
@@ -47,6 +49,7 @@
 }
 
 .custom-select3{
+  margin-top:10px;
   height: 40px;
   width: 140px;
   text-align: center;
@@ -54,5 +57,24 @@
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Products.css */
+.filter input {
+  position: absolute;
+  top: 7px; 
+  left: 175px;
+  border: none;
+  width: 69%;
+  height: 35px;
+  border-radius: 75px;
+  box-shadow: none;
+  text-align: left;
+  padding: 0 20px; 
+  font-size: 14px;
+  font-weight: 500;
+  background: #e7e7e7;
+  cursor: pointer;
 }
 

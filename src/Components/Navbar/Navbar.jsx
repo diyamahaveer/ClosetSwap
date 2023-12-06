@@ -1,20 +1,51 @@
-import React, { useState } from 'react'
-import './Navbar.css'
-import shoppingcart_icon from '../Assets/shoppingcart_icon.png'
-import { Link } from 'react-router-dom'
-import heart_icon from '../Assets/heart_icon.png'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import './Navbar.css';
+import shoppingcart_icon from '../Assets/shoppingcart_icon.png';
+import heart_icon from '../Assets/heart_icon.png';
+import { supabase } from '../../supabaseClient';
 import search_icon from '../Assets/search_icon.png'
 
 
 const Navbar = () => {
-
     const [menu, setMenu] = useState("none");
+    const [searchInput, setSearchInput] = useState('');
+    const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
+
+    useEffect(() => {
+        // Fetch products from Supabase
+        const fetchProducts = async () => {
+            let { data: fetchedProducts, error } = await supabase
+                .from('Products') // Replace 'products' with your actual table name
+                .select('*');
+
+            if (error) console.log('Error fetching products', error);
+            else setProducts(fetchedProducts);
+        };
+
+        fetchProducts();
+    }, []);
+
+    useEffect(() => {
+        // Filter products based on search input
+        const filtered = products.filter(product => 
+            product.name.toLowerCase().includes(searchInput.toLowerCase()) // Adjust according to your product structure
+        );
+        setFilteredProducts(filtered);
+    }, [searchInput, products]);
+
+    const handleSearchChange = (event) => {
+        setSearchInput(event.target.value);
+    };
+
     return (
         <div className='navbar'>
             <div className="nav-siteName">
-                <p className='text-left'>ClosetSwap </p>
-            </div>
-
+                    <Link to="/">
+                    <button>ClosetSwap</button>
+                    </Link>
+                </div>
             <div className="nav-divider"></div>
 
             <div className='nav-signup-cart'>
@@ -22,7 +53,8 @@ const Navbar = () => {
                     type="text"
                     className="search-input"
                     placeholder="Search"
-
+                    value={searchInput}
+                    onChange={handleSearchChange}
                 />
                 <img src={heart_icon} alt="" style={{ width: '20px' }} />
                 <Link to='/cart'><img src={shoppingcart_icon} alt="" style={{ width: '20px' }} /></Link>
@@ -56,6 +88,13 @@ const Navbar = () => {
                     </li>
                 </ul>
             </section>
+            <div>
+                {filteredProducts.map(product => (
+                    <div key={product.id}> {/* assuming each product has a unique 'id' */}
+                        {product.name} {/* replace with how you want to display each product */}
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }

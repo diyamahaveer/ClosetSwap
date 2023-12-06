@@ -1,5 +1,27 @@
 .tile-container {
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   justify-content: space-around;
+}
+.tiles-wrapper{
+  text-align: left;
+}
+
+.tile {
+  flex-basis: calc(250px - 10px); /* Adjust 10px to your desired gap */
+  margin: 5px; /* Half of the gap on all sides */
+  /* Additional styles for your tiles */
+}
+@media (max-width: 600px) {
+  .tile {
+    flex-basis: calc(50% - 10px);
   }
+}
+
+
+.products{
+  margin-top: -30%;
+}
+.filter{
+  margin-left: 11px
+}

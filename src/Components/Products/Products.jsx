@@ -28,6 +28,8 @@ const Products = () => {
   return (
 <div>
   <Shop/>
+  <div className = 'products'>
+    <div className = 'filter'>
   <select onChange={(e) => setpriceFilter(e.target.value)}>
     <option value="0">$0</option>
     <option value="5">$5</option>
@@ -35,6 +37,8 @@ const Products = () => {
     <option value="15">$15</option>
    {/* Add more categories as needed */}
   </select>
+  </div>
+  <div class="tiles-wrapper">
     <div className='tile-container'>
       {products.filter((product) => parseInt(product.price) <= parseInt(priceFilter)).map((product) => (
         <Tile
@@ -46,6 +50,8 @@ const Products = () => {
           image={image}
         />
       ))}
+    </div>
+    </div>
     </div>
 </div>
   );

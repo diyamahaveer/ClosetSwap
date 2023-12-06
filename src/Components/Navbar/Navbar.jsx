@@ -88,13 +88,6 @@ const Navbar = () => {
                     </li>
                 </ul>
             </section>
-            <div>
-                {filteredProducts.map(product => (
-                    <div key={product.id}> {/* assuming each product has a unique 'id' */}
-                        {product.name} {/* replace with how you want to display each product */}
-                    </div>
-                ))}
-            </div>
         </div>
     )
 }

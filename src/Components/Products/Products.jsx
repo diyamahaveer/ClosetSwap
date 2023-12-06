@@ -7,15 +7,17 @@ import Shop from '../../Pages/Shop';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const [priceFilter, setpriceFilter] =  useState(0);
+  const [priceFilter, setPriceFilter] = useState('0');
+  const [sizeFilter, setSizeFilter] = useState('');
+  const [colorFilter,setColorFilter] = useState('');
+  const [searchInput, setSearchInput] = useState('');
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     const getProducts = async () => {
       try {
         const { data, error } = await supabase.from('Products').select('*');
-        if (error) {
-          throw error;
-        }
+        if (error) throw error;
         setProducts(data);
       } catch (error) {
         console.error('Error fetching data:', error.message);
@@ -25,61 +27,79 @@ const Products = () => {
     getProducts();
   }, []);
 
+  useEffect(() => {
+    const filtered = products.filter(product => {
+      const matchesSearch = searchInput === '' || product.name.toLowerCase().includes(searchInput.toLowerCase());
+      const matchesPrice = priceFilter === '0' || parseInt(product.price) <= parseInt(priceFilter);
+      const matchesSize = sizeFilter === '' || product.size === sizeFilter;
+      return matchesSearch && matchesPrice && matchesSize;
+    });
+
+    setFilteredProducts(filtered);
+  }, [searchInput, priceFilter, sizeFilter, products]);
+
   return (
-<div>
-  <Shop/>
-  <div className = 'products'>
-    <div className = 'filter'>
-  <select onChange={(e) => setpriceFilter(e.target.value)}>
-    <option value="0">$0</option>
-    <option value="5">$5</option>
-    <option value="10">$10</option>
-    <option value="15">$15</option>
-   {/* Add more categories as needed */}
-  </select>
-  </div>
-  <div class="tiles-wrapper">
-    <div className='tile-container'>
-      {products.filter((product) => parseInt(product.price) <= parseInt(priceFilter)).map((product) => (
-        <Tile
-          key={product.id} // Make sure to provide a unique key for each element in the array
-          name={product.name}
-          description={product.description}
-          price={product.price}
-          size={product.size}
-          image={image}
-        />
-      ))}
+    <div>
+      <Shop />
+      <div className='products'>
+        <div className='filter'>
+          <select onChange={(e) => setPriceFilter(e.target.value)} className='custom-select'>
+            <option value="0">Price</option>
+            <option value="5">$5</option>
+            <option value="10">$10</option>
+            <option value="15">$15</option>
+            <option value="20">$20</option>
+            {/* Add more categories as needed */}
+          </select>
+          <select onChange={(e) => setSizeFilter(e.target.value)} className='custom-select'>
+            <option value="">Size</option>
+            <option value="XS">XS</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
+            {/* Add more categories as needed */}
+          </select>
+          <select onChange={(e) => setColorFilter(e.target.value)} className='custom-select3'>
+            <option value="">Color</option>
+            <option value="Red">Red</option>
+            <option value="Orange">Orange</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Green">Green</option>
+            <option value="Blue">Blue</option>
+            <option value="Purple">Purple</option>
+            <option value="White">White</option>
+            <option value="Black">Black</option>
+            <option value="Multi">Multi</option>
+            {/* Add more categories as needed */}
+          </select>
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            className='custom-select'
+          />
+        </div>
+        <div className="tiles-wrapper">
+          <div className='tile-container'>
+            {filteredProducts.map((product) => (
+              <Tile
+                key={product.id}
+                name={product.name}
+                description={product.description}
+                price={product.price}
+                size={product.size}
+                date={product.date}
+                image={image}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
-    </div>
-</div>
   );
 };
 
 export default Products;
-
-
-// return (
-//       <div>
-//         <div className='pb-8'>
-//         <h1 style={{ fontFamily: 'Times New Roman' }} className='text-3xl text-left'>&nbsp;ClosetSwap </h1>
-//         </div>
-//         <div>
-//           <select onChange={(e) => setpriceFilter(e.target.value)}>
-//               <option value="0">$0</option>
-//               <option value="5">$5</option>
-//               <option value="10">$10</option>
-//               <option value="15">$15</option>
-//               {/* Add more categories as needed */}
-//             </select>
-//         </div>
-//         <div className="grid grid-cols-3 gap-4">
-//           {clothesData
-//           .filter((clothes) => parseInt(clothes.price) <= parseInt(priceFilter))
-//           .map((clothes) => (
-//             <ClothesTile key={clothes.id} name = {clothes.name} description = {clothes.description} price = {clothes.price} image = {clothes.image}/>
-//           ))}
-//         </div>
-//       </div>
-//     )

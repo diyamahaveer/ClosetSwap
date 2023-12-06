@@ -1,6 +1,6 @@
 import './Tile.css'
 
-export default function Tile({name, price, size, image, id}) {
+export default function Tile({name, price, size, date, image, id}) {
     return (
       <div className='tile' > 
         <img src={image} alt={name} width={200} height={200} />
@@ -12,7 +12,10 @@ export default function Tile({name, price, size, image, id}) {
             <p> ${price}</p>
           </div>
           <div className="tile-size">
-          <p> {size} </p>
+          <p> Size: {size} </p>
+          </div>
+          <div className="tile-date">
+          <text> {date} </text>
           </div>
         </div>
       </div>

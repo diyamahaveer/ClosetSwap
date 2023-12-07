@@ -1,16 +1,57 @@
 .search{
-    position: absolute;
-    top: 17px; 
-    left: 210px;
-    border: none;
-    width: 69%;
-    height: 35px;
-    border-radius: 75px;
-    box-shadow: none;
-    text-align: left;
-    padding: 0 20px; 
-    font-size: 14px;
-    font-weight: 500;
-    background: #e7e7e7;
-    cursor: pointer;
+  position: absolute;
+  top: 17px; 
+  left: 210px;
+  border: none;
+  width: 69%;
+  height: 35px;
+  border-radius: 75px;
+  box-shadow: none;
+  text-align: left;
+  padding: 0 20px; 
+  font-size: 14px;
+  font-weight: 500;
+  background: #e7e7e7;
+  cursor: pointer;
+}
+
+.fav-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.fav-content-center {
+text-align: center;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.fav-text {
+margin-top: 100px; /* Adjust this value as needed to move the text down */
+font-weight: bold;
+font-size: 30px;
+}
+
+.fav-text2 {
+  margin-top: 40px; /* Adjust this value as needed to move the text down */
+  /* font-weight: bold; */
+  font-size: 18px;
   }
+
+  .fav-text3 {
+    /* Add your button styling here */
+    background-color: #862F83; /* Green background */
+    border: none;
+    color: #F3E6FF;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 60px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  

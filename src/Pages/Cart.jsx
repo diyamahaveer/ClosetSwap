@@ -7,7 +7,7 @@ const Cart = () => {
     <div className='cart-container'>
       <input type="text" placeholder="Search" className='search' />
       <div className='content-center'>
-        <div className='cart-text'>Your cart is empty</div>
+        <div className='cart-text'>Your cart is empty.</div>
         <div className='cart-text2'>
           <a href="/">Discover something you want for your closet</a>
         </div>

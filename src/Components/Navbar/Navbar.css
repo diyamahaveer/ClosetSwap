@@ -157,3 +157,32 @@
     color: black; /* Replace with your desired hover color */
   }
   
+
+  @media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-menu {
+        margin-left: 0;
+    }
+
+    .nav-signup-cart {
+        margin-left: 0;
+        transform: translateY(0);
+    }
+    .nav-siteName button{
+        margin-left: -240px;
+    }
+    .nav-divider, .favorites, .cart {
+        display: none;
+    }
+    .nav-signup-cart button{
+        display: none;
+    }
+    .nav-menu li{
+        margin-top: 30px;
+    }
+}
+

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../../supabaseClient';
 import Tile from '../../Components/Tile/Tile';
-import image from '../../Components/Assets/product_1.jpeg';
+import defaultImage from '../../Components/Assets/product_1.jpeg';
 import './Category.css';
 
 const Womenswear = () => {
@@ -17,15 +17,32 @@ const Womenswear = () => {
     async function getProducts() {
       try {
         const { data, error } = await supabase.from('Products').select('*').eq('shopcategory', 'Womens');
-        if (error) throw error;
-        setProducts(data);
-      } catch (error) {
-        console.error('Error fetching data:', error.message);
-      }
-    };
+        if (error) throw error; 
+        // Constructing image URLs
+         const productsWithImageUrl = data.map(product => {
+          // Define imageUrl within the map function
+          const imageUrl = product.image_url ? 
+            `https://ioudgjxgfrgkeoqvyyuh.supabase.co/storage/v1/object/public/image/${product.image_url}` 
+            : defaultImage;
 
-    getProducts();
-  }, []);
+          console.log("Image URL for product:", imageUrl); // Log each image URL
+
+          return {
+              ...product,
+              imageUrl // Include imageUrl in the returned object
+          };
+      });
+
+      setProducts(productsWithImageUrl);
+  } catch (error) {
+      console.error('Error fetching data:', error.message);
+  }
+}
+
+
+
+getProducts();
+}, []);
 
   useEffect(() => {
     const filtered = products.filter(product => {
@@ -65,6 +82,7 @@ const Womenswear = () => {
             <option value="Dresses">Dresses</option>
             <option value="Outerwear">Outerwear</option>
             <option value="Shoes">Shoes</option>
+            <option value="Miscellaneous">Miscellaneous</option>
             {/* Add more categories as needed */}
           </select>
           <select onChange={(e) => setPriceFilter(e.target.value)} className='custom-select'>
@@ -110,7 +128,7 @@ const Womenswear = () => {
                 size={product.size}
                 date={product.date}
                 color={product.color}
-                image={image} // Change this if your product has an 'image_url' property
+                image={product.imageUrl} // Change this if your product has an 'image_url' property
               />
             ))}
           </div>

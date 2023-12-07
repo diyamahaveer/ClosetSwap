@@ -1,4 +1,4 @@
-.hero{
+/* .hero{
     height: 100vh;
     width: 100hv;
     background: white;
@@ -26,7 +26,6 @@
 }
 
 .hero-right{ 
-    /* for div */
     display: flex;
     height: 300px;
     width: 100%;
@@ -34,10 +33,43 @@
 }
 
 .hero-right2{
-    /* for the img  */
     display: flex;
     height: 300px;
     width: 100%;
     margin: 10px;
 
-}
+} */
+
+/* Hero.css */
+.hero {
+    position: relative; /* if you want to position elements inside the hero absolutely */
+    width: 100%; /* take full width of the container */
+    margin: 0; /* no extra margin */
+    padding: 0; /* no extra padding */
+    overflow: hidden; /* in case the image is larger than the container */
+  }
+  
+  .hero-latest-btn {
+    position: absolute;
+    top: 50%; /* center vertically */
+    left: 50%; /* center horizontally */
+    transform: translate(-50%, -50%); /* adjust exact centering */
+    /* Add additional styles for your button here */
+  }
+  
+  .hero-right {
+    width: 100%; /* take full width of the hero */
+    height: auto; /* maintain aspect ratio */
+    margin: 0; /* no extra margin */
+    padding: 0; /* no extra padding */
+    display: flex; /* use flex to help center the image if needed */
+    align-items: center; /* center vertically */
+    justify-content: center; /* center horizontally */
+  }
+  
+  .hero-right2 {
+    width: 100%; /* make the image take full width of its container */
+    height: auto; /* maintain aspect ratio */
+    display: block; /* removes any extra space below the image */
+  }
+  

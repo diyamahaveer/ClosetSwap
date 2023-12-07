@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import './Products.css';
 import { supabase } from '../../supabaseClient';
-import Tile from '../Tile/Tile';
-import image from '../Assets/product_1.jpeg';
-import Shop from '../../Pages/Shop';
+import Tile from '../../Components/Tile/Tile';
+import image from '../../Components/Assets/product_1.jpeg';
+import './Category.css';
 
-const Products = () => {
+const Accessories = () => {
   const [products, setProducts] = useState([]);
   const [priceFilter, setPriceFilter] = useState('0');
   const [sizeFilter, setSizeFilter] = useState('');
-  const [colorFilter,setColorFilter] = useState('');
+  const [colorFilter, setColorFilter] = useState('');
   const [searchInput, setSearchInput] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    const getProducts = async () => {
+    async function getProducts() {
       try {
         const { data, error } = await supabase.from('Products').select('*');
         if (error) throw error;
@@ -41,13 +40,12 @@ const Products = () => {
 
   return (
     <div>
-      <Shop />
       <div className='products'>
-        <div className = 'main-title'>
-          <h1>Shop ClosetSwap</h1>
+      <div className = 'title'>
+          <h1>Accessories</h1>
         </div>
         <div className='filter'>
-        <input
+          <input
             type="text"
             placeholder="Search"
             value={searchInput}
@@ -97,7 +95,7 @@ const Products = () => {
                 size={product.size}
                 date={product.date}
                 color={product.color}
-                image={image}
+                image={image} // Change this if your product has an 'image_url' property
               />
             ))}
           </div>
@@ -107,4 +105,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Accessories;

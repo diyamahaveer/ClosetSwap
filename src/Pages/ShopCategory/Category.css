@@ -1,0 +1,87 @@
+.title h1 {
+  font-size: 32px;
+  padding-bottom: 5px;
+  text-align: center;
+  padding-top: 20px;
+}
+.tile-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .tiles-wrapper{
+    text-align: left;
+  }
+  
+  .tile {
+    flex-basis: calc(250px - 10px); /* Adjust 10px to your desired gap */
+    margin: 5px; /* Half of the gap on all sides */
+    /* Additional styles for your tiles */
+  }
+  @media (max-width: 600px) {
+    .tile {
+      flex-basis: calc(50% - 10px);
+    }
+  }
+  
+  
+  .products{
+    margin-top: 20px;
+  }
+  .filter{
+    margin-left: 11px;
+    margin-bottom: 20px;
+  }
+  .custom-select{
+    margin-top:10px;
+    height: 40px;
+    width: 140px;
+    text-align: center;
+    margin-left: 35px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-select2{
+    margin-top:10px;
+    height: 40px;
+    width: 140px;
+    text-align: center;
+    margin-left: 180px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-select3{
+    margin-top:10px;
+    height: 40px;
+    width: 140px;
+    text-align: center;
+    margin-left: 35px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  /* Products.css */
+  .filter input {
+    position: absolute;
+    top: 7px; 
+    left: 175px;
+    border: none;
+    width: 69%;
+    height: 35px;
+    border-radius: 75px;
+    box-shadow: none;
+    text-align: left;
+    padding: 0 20px; 
+    font-size: 14px;
+    font-weight: 500;
+    background: #e7e7e7;
+    cursor: pointer;
+  }
+  
+  

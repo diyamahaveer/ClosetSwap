@@ -29,15 +29,7 @@ align-items: center;
 }
 
 .cart-text {
-margin-top: 100px; /* Adjust this value as needed to move the text down */
-font-weight: bold;
-font-size: 30px;
-}
-
-.cart-text2 {
-margin-top: 40px; /* Adjust this value as needed to move the text down */
-font-weight: bold;
-font-size: 18px;
+  margin-top: 200px; /* Adjust this value as needed to move the text down */
 }
 
 .image img{

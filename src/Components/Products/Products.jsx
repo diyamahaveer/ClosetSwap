@@ -10,6 +10,7 @@ const Products = () => {
   const [priceFilter, setPriceFilter] = useState('0');
   const [sizeFilter, setSizeFilter] = useState('');
   const [colorFilter,setColorFilter] = useState('');
+  const [categoryFilter,setCategoryFilter] = useState('');
   const [searchInput, setSearchInput] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
 
@@ -31,21 +32,19 @@ const Products = () => {
     const filtered = products.filter(product => {
       const matchesSearch = searchInput === '' || product.name.toLowerCase().includes(searchInput.toLowerCase());
       const matchesPrice = priceFilter === '0' || parseInt(product.price) <= parseInt(priceFilter);
+      const matchesCategory = categoryFilter === '' || product.category === categoryFilter;
       const matchesSize = sizeFilter === '' || product.size === sizeFilter;
       const matchesColor = colorFilter === '' || product.color === colorFilter;
       return matchesSearch && matchesPrice && matchesSize && matchesColor;
     });
 
     setFilteredProducts(filtered);
-  }, [searchInput, priceFilter, sizeFilter, colorFilter, products]);
+  }, [searchInput, categoryFilter, priceFilter, sizeFilter, colorFilter, products]);
 
   return (
     <div>
       <Shop />
       <div className='products'>
-        <div className = 'main-title'>
-          <h1>Shop ClosetSwap</h1>
-        </div>
         <div className='filter'>
         <input
             type="text"
@@ -54,12 +53,24 @@ const Products = () => {
             onChange={(e) => setSearchInput(e.target.value)}
             className='custom-select'
           />
+          <select onChange={(e) => setCategoryFilter(e.target.value)} className='custom-select4'>
+            <option value="">Category</option>
+            <option value="Tops">Tops</option>
+            <option value="Bottoms">Bottoms</option>
+            <option value="Sweaters">Sweaters</option>
+            <option value="Jackets">Jackets</option>
+            <option value="Sweatshirts">Sweatshirts</option>
+            <option value="Dresses">Dresses</option>
+            <option value="Outerwear">Outerwear</option>
+            <option value="Shoes">Shoes</option>
+            {/* Add more categories as needed */}
+          </select>
           <select onChange={(e) => setPriceFilter(e.target.value)} className='custom-select'>
             <option value="0">Price</option>
-            <option value="5">$5</option>
-            <option value="10">$10</option>
-            <option value="15">$15</option>
-            <option value="20">$20</option>
+            <option value="5">$5 and Under</option>
+            <option value="10">$10 and Under</option>
+            <option value="15">$15 and Under</option>
+            <option value="20">$20 and Under</option>
             {/* Add more categories as needed */}
           </select>
           <select onChange={(e) => setSizeFilter(e.target.value)} className='custom-select'>
@@ -93,6 +104,7 @@ const Products = () => {
                 key={product.id}
                 name={product.name}
                 description={product.description}
+                category={product.category}
                 price={product.price}
                 size={product.size}
                 date={product.date}

@@ -72,7 +72,7 @@
     width: 105%;
     padding-left: 20px;
     color: white;
-    background: #0f6fde;
+    background: rgb(123, 75, 153);
     margin-top: 20px;
     border: none;
     font-size: 24px;
@@ -87,7 +87,7 @@
     font-weight: 500;
 }
 .loginsignup-login span{
-    color: #0f6fde;
+    color: rgb(123, 75, 153);
     font-weight: 500;
 }
 .loginsignup-agree{

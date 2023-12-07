@@ -1,6 +1,6 @@
 import './Tile.css'
 
-export default function Tile({name, price, size, date, image, id}) {
+export default function Tile({name, price, size, date, image_url, id}) {
     return (
       <div className='tile' > 
         <div className = 'tile-img'>

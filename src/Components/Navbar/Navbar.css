@@ -16,6 +16,9 @@
     border: none;
 
 }
+.nav-siteName button:hover{
+    cursor: pointer;
+}
 
 .nav-divider{
     border: none;

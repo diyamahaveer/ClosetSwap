@@ -7,6 +7,7 @@ import './Category.css';
 const Accessories = () => {
   const [products, setProducts] = useState([]);
   const [priceFilter, setPriceFilter] = useState('0');
+  const [categoryFilter, setCategoryFilter] = useState('');
   const [sizeFilter, setSizeFilter] = useState('');
   const [colorFilter, setColorFilter] = useState('');
   const [searchInput, setSearchInput] = useState('');
@@ -15,7 +16,7 @@ const Accessories = () => {
   useEffect(() => {
     async function getProducts() {
       try {
-        const { data, error } = await supabase.from('Products').select('*');
+        const { data, error } = await supabase.from('Products').select('*').eq('shopcategory', 'Accessories');
         if (error) throw error;
         setProducts(data);
       } catch (error) {
@@ -29,14 +30,15 @@ const Accessories = () => {
   useEffect(() => {
     const filtered = products.filter(product => {
       const matchesSearch = searchInput === '' || product.name.toLowerCase().includes(searchInput.toLowerCase());
+      const matchesCategory = categoryFilter === '' || product.category === categoryFilter;
       const matchesPrice = priceFilter === '0' || parseInt(product.price) <= parseInt(priceFilter);
       const matchesSize = sizeFilter === '' || product.size === sizeFilter;
       const matchesColor = colorFilter === '' || product.color === colorFilter;
-      return matchesSearch && matchesPrice && matchesSize && matchesColor;
+      return matchesSearch && matchesCategory && matchesSize && matchesColor;
     });
 
     setFilteredProducts(filtered);
-  }, [searchInput, priceFilter, sizeFilter, colorFilter, products]);
+  }, [searchInput, categoryFilter, priceFilter, sizeFilter, colorFilter, products]);
 
   return (
     <div>
@@ -52,12 +54,24 @@ const Accessories = () => {
             onChange={(e) => setSearchInput(e.target.value)}
             className='custom-select'
           />
+           <select onChange={(e) => setCategoryFilter(e.target.value)} className='custom-select4'>
+            <option value="">Category</option>
+            <option value="Tops">Tops</option>
+            <option value="Bottoms">Bottoms</option>
+            <option value="Sweaters">Sweaters</option>
+            <option value="Jackets">Jackets</option>
+            <option value="Sweatshirts">Sweatshirts</option>
+            <option value="Dresses">Dresses</option>
+            <option value="Outerwear">Outerwear</option>
+            <option value="Shoes">Shoes</option>
+            {/* Add more categories as needed */}
+          </select>
           <select onChange={(e) => setPriceFilter(e.target.value)} className='custom-select'>
             <option value="0">Price</option>
-            <option value="5">$5</option>
-            <option value="10">$10</option>
-            <option value="15">$15</option>
-            <option value="20">$20</option>
+            <option value="5">$5 and Under</option>
+            <option value="10">$10 and Under</option>
+            <option value="15">$15 and Under</option>
+            <option value="20">$20 and Under</option>
             {/* Add more categories as needed */}
           </select>
           <select onChange={(e) => setSizeFilter(e.target.value)} className='custom-select'>

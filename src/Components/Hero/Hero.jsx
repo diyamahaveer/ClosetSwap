@@ -1,6 +1,6 @@
 import React from 'react'
 import './Hero.css'
-import banner_two from '../Assets/banner_two.png'
+import banner_three from '../Assets/banner_three.jpeg'
 
 const Hero = () => {
   return (
@@ -9,7 +9,7 @@ const Hero = () => {
             <div></div>
         </div>
         <div className ="hero-right">
-            <img src={banner_two} className ="hero-right2" alt = ""/>
+            <img src={banner_three} className ="hero-right2" alt = ""/>
       </div>
     </div>
   )

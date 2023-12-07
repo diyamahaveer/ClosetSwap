@@ -40,7 +40,7 @@
   margin-left: 35px;
   background-color: #fff;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgb(123, 75, 153);
 }
 
 .custom-select2{
@@ -51,7 +51,7 @@
   margin-left: 180px;
   background-color: #fff;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgb(123, 75, 153);
 }
 
 .custom-select3{
@@ -62,7 +62,7 @@
   margin-left: 35px;
   background-color: #fff;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgb(123, 75, 153);
 }
 
 
@@ -83,4 +83,3 @@
   background: #e7e7e7;
   cursor: pointer;
 }
-

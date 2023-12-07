@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Products.css';
 import { supabase } from '../../supabaseClient';
 import Tile from '../Tile/Tile';
-import image from '../Assets/product_1.jpeg';
+import defaultImage from '../Assets/product_1.jpeg';
 import Shop from '../../Pages/Shop';
 
 const Products = () => {
@@ -15,15 +15,32 @@ const Products = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const { data, error } = await supabase.from('Products').select('*');
-        if (error) throw error;
-        setProducts(data);
-      } catch (error) {
-        console.error('Error fetching data:', error.message);
-      }
-    };
+    async function getProducts() {
+        try {
+            const { data, error } = await supabase.from('Products').select('*');
+            if (error) throw error;
+
+            // Constructing image URLs
+            const productsWithImageUrl = data.map(product => {
+                // Define imageUrl within the map function
+                const imageUrl = product.image_url ? 
+                  `https://ioudgjxgfrgkeoqvyyuh.supabase.co/storage/v1/object/public/image/${product.image_url}` 
+                  : defaultImage;
+
+                console.log("Image URL for product:", imageUrl); // Log each image URL
+
+                return {
+                    ...product,
+                    imageUrl // Include imageUrl in the returned object
+                };
+            });
+
+            setProducts(productsWithImageUrl);
+        } catch (error) {
+            console.error('Error fetching data:', error.message);
+        }
+    }
+
 
     getProducts();
   }, []);
@@ -35,7 +52,7 @@ const Products = () => {
       const matchesCategory = categoryFilter === '' || product.category === categoryFilter;
       const matchesSize = sizeFilter === '' || product.size === sizeFilter;
       const matchesColor = colorFilter === '' || product.color === colorFilter;
-      return matchesSearch && matchesPrice && matchesSize && matchesColor;
+      return matchesSearch && matchesCategory && matchesPrice && matchesSize && matchesColor;
     });
 
     setFilteredProducts(filtered);
@@ -63,6 +80,7 @@ const Products = () => {
             <option value="Dresses">Dresses</option>
             <option value="Outerwear">Outerwear</option>
             <option value="Shoes">Shoes</option>
+            <option value="Miscellaneous">Miscellaneous</option>
             {/* Add more categories as needed */}
           </select>
           <select onChange={(e) => setPriceFilter(e.target.value)} className='custom-select'>
@@ -109,7 +127,7 @@ const Products = () => {
                 size={product.size}
                 date={product.date}
                 color={product.color}
-                image={image}
+                image={product.imageUrl}
               />
             ))}
           </div>

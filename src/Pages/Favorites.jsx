@@ -13,8 +13,8 @@ const Favorites = () => {
   }, []);
 
   const clearFavorites = () => {
-    localStorage.removeItem('favorites'); // Clears the favorites from local storage
-    setFavorites([]); // Resets the favorites state to an empty array
+    localStorage.removeItem('favorites'); 
+    setFavorites([]); 
   };
 
   return (

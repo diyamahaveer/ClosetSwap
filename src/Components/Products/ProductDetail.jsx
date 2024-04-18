@@ -49,6 +49,13 @@ const ProductDetail = () => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   };
 
+  const addToCart = () => {
+    let carts = JSON.parse(localStorage.getItem('carts')) || [];
+    carts.push(product);
+    localStorage.setItem('carts', JSON.stringify(carts));
+  };
+  
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
   if (!product) return <div>Product not found.</div>;
@@ -56,6 +63,7 @@ const ProductDetail = () => {
   return (
     <div className="product-detail-container">
       <button className="add-to-favorites-button" onClick={addToFavorites}>Add to Favorites</button>
+      <button className="add-to-cart-button" onClick={addToCart}>Add to Cart</button>
       <div className="product-image">
         <img src={product.imageUrl} alt={product.name} />
       </div>

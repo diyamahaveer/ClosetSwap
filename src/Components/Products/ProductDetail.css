@@ -41,6 +41,18 @@
     cursor: pointer;
     border-radius: 5px;
   }
+
+  .clear-carts-button {
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    padding: 10px 20px;
+    background-color: #862F83; /* Adjust the color as needed */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
   
   .add-favorites-button {
     position: absolute;
@@ -60,6 +72,20 @@
     position: absolute;
     top: 500px; /* Adjust top positioning as needed */
     right: 610px; /* Adjust right positioning as needed */
+    padding: 10px 20px; /* Increased padding for a bigger button */
+    background-color: #862F83; /* Dark purple color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px; /* Slightly larger border-radius for a smoother curve */
+    font-size: 20px; /* Increased font size for better visibility */
+    font-weight: bold; /* Makes the text bold */
+  }
+
+  .add-to-cart-button {
+    position: absolute;
+    top: 500px; /* Adjust top positioning as needed */
+    right: 410px; /* Adjust right positioning as needed */
     padding: 10px 20px; /* Increased padding for a bigger button */
     background-color: #862F83; /* Dark purple color */
     color: white;

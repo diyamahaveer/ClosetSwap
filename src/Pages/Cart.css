@@ -15,13 +15,21 @@
   cursor: pointer;
 }
 
-.cart-container {
-display: flex;
-flex-direction: column;
-align-items: center;
+.clear-cart-button {
+  float: right; /* Align the button to the right */
+  margin-right: 20px; /* Optional: adds right margin */
+  /* Other styles (e.g., padding, color) can be added here as well */
 }
 
-.content-center {
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Add this line */
+}
+
+.cart-content-center {
 text-align: center;
 display: flex;
 flex-direction: column;
@@ -35,21 +43,32 @@ font-size: 30px;
 }
 
 .cart-text2 {
-margin-top: 40px; /* Adjust this value as needed to move the text down */
-font-weight: bold;
-font-size: 18px;
-}
+  margin-top: 40px; /* Adjust this value as needed to move the text down */
+  /* font-weight: bold; */
+  font-size: 18px;
+  }
 
-.image img{
-margin: 0; /* Reset default margin */
-position: absolute; /* Use absolute positioning */
-top: 50%; /* Position at 50% from the top */
-left: 50%; /* Position at 50% from the left */
-transform: translate(-40%, -50%); /* Offset the image by half of its width and height to center it */
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-max-width: 50%;
-max-height: 100px;
-}
+  .cart-text3 {
+    /* Add your button styling here */
+    background-color: #862F83; /* Green background */
+    border: none;
+    color: #F3E6FF;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 60px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  
+  .carts-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Continues to create a 5-column grid */
+    gap: 30px; /* Increased the gap size for more space between grid items */
+    justify-items: center; /* Centers items along the row */
+    width: 100%; /* Ensures the grid takes the full container width */
+    padding: 30px; /* Adds padding around the grid for more space from container edges */
+  }

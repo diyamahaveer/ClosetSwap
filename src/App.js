@@ -37,6 +37,7 @@ function App() {
           <Route path = '/loginsignup' element = {<LoginSignup/>}/>
           <Route path="/" element={<Products />} />
           <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </BrowserRouter>
       

@@ -14,6 +14,7 @@ import Menswear from './Pages/ShopCategory/Menswear';
 import Womenswear from './Pages/ShopCategory/Womenswear';
 import Accessories from './Pages/ShopCategory/Accessories';
 import SpecialEvents from './Pages/ShopCategory/SpecialEvents';
+import ProductDetail from './Components/Products/ProductDetail';
 
 
 function App() {
@@ -34,6 +35,8 @@ function App() {
           <Route path = '/favorites' element = {<Favorites/>}/>
           <Route path = '/loginintro' element = {<LoginIntro/>}/>
           <Route path = '/loginsignup' element = {<LoginSignup/>}/>
+          <Route path="/" element={<Products />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
         </Routes>
       </BrowserRouter>
       

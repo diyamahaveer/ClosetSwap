@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../../supabaseClient';
 import defaultImage from '../Assets/product_1.jpeg';
 import './ProductDetail.css';
 
 const ProductDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -47,14 +48,15 @@ const ProductDetail = () => {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     favorites.push(product);
     localStorage.setItem('favorites', JSON.stringify(favorites));
+    navigate('/favorites');
   };
 
   const addToCart = () => {
     let carts = JSON.parse(localStorage.getItem('carts')) || [];
     carts.push(product);
     localStorage.setItem('carts', JSON.stringify(carts));
+    navigate('/cart'); // Navigate to the cart page
   };
-  
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;

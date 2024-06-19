@@ -1,6 +1,8 @@
+// Cart.js
 import React, { useState, useEffect } from 'react';
 import './Cart.css';
 import Tile from '../Components/Tile/Tile';
+// import SearchBar from '../Pages/SearchBar';
 
 const Carts = () => {
   const [carts, setCarts] = useState([]);
@@ -19,7 +21,6 @@ const Carts = () => {
 
   return (
     <div className='cart-container'>
-      <input type="text" placeholder="Search" className='search' />
       <div className='cart-content-center'>
         <div className='cart-text'>My Cart</div>
         {carts.length > 0 ? (

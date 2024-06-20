@@ -1,44 +1,75 @@
 /* Tile.css */
 .tile {
-    text-align: center;
-    margin-bottom: none;
-  }
-  .tile:hover {
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4); /* Different shadow on hover */
-  }
-  
+text-align: center;
+margin-bottom: none;
+}
+.tile
+{
+box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4); 
+}
 
-  .tile-info{
-    border: 1px solid white;
-    padding: 20px;
-    /*margin-top: -1px;*/
-    max-width: 300px;
-    text-align: left;
+.tile-info{
+border: 1px solid white;
+padding: 20px;
+margin-top: -1px;
+max-width: 300px;
+text-align: left;
 
-  }
+}
 
-  .tile-name{
-    font-weight: 600px;
+.tile-name{
+font-weight: 600px;
 
+}
 
-  }
+.tile-price{
+margin-top: -10px;
+font-weight: 900px;
 
-  .tile-price{
-    margin-top: -10px;
-    font-weight: 900px;
+}
 
-  }
+.tile-size{
+margin-top: -10px;
 
-  .tile-size{
-    margin-top: -10px;
+}
 
-  }
+.tile-date{
+margin-top: -13px;
 
-  .tile-date{
-    margin-top: -13px;
-    
+}
+.tile-img{
+margin-top: 20px;
+}
 
-  }
-  .tile-img{
-    margin-top: 20px;
-  }
+/* .tile {
+position: relative;
+} */
+
+.tile-heart {
+position: absolute;
+bottom: -115px;
+right: 50px;
+cursor: pointer;
+}
+
+.tile-heart svg {
+color: #862F83;
+font-size: 24px;
+}
+
+.tile {
+position: relative;
+width: 200px;
+margin: 10px;
+/* other styles */
+}
+
+.tile-img img {
+width: 100%;
+height: auto;
+}
+
+.tile-info {
+padding: 10px;
+/* other styles */
+}

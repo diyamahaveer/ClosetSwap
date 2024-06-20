@@ -9,38 +9,34 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [priceFilter, setPriceFilter] = useState('0');
   const [sizeFilter, setSizeFilter] = useState('');
-  const [colorFilter,setColorFilter] = useState('');
-  const [categoryFilter,setCategoryFilter] = useState('');
+  const [colorFilter, setColorFilter] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState('');
   const [searchInput, setSearchInput] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     async function getProducts() {
-        try {
-            const { data, error } = await supabase.from('Products').select('*');
-            if (error) throw error;
+      try {
+        const { data, error } = await supabase.from('Products').select('*');
+        if (error) throw error;
 
-            // Constructing image URLs
-            const productsWithImageUrl = data.map(product => {
-                // Define imageUrl within the map function
-                const imageUrl = product.image_url ? 
-                  `https://ioudgjxgfrgkeoqvyyuh.supabase.co/storage/v1/object/public/image/${product.image_url}` 
-                  : defaultImage;
+        // Constructing image URLs
+        const productsWithImageUrl = data.map(product => {
+          const imageUrl = product.image_url ?
+            `https://ioudgjxgfrgkeoqvyyuh.supabase.co/storage/v1/object/public/image/${product.image_url}`
+            : defaultImage;
 
-                console.log("Image URL for product:", imageUrl); // Log each image URL
+          return {
+            ...product,
+            imageUrl
+          };
+        });
 
-                return {
-                    ...product,
-                    imageUrl // Include imageUrl in the returned object
-                };
-            });
-
-            setProducts(productsWithImageUrl);
-        } catch (error) {
-            console.error('Error fetching data:', error.message);
-        }
+        setProducts(productsWithImageUrl);
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+      }
     }
-
 
     getProducts();
   }, []);
@@ -63,7 +59,7 @@ const Products = () => {
       <Shop />
       <div className='products'>
         <div className='filter'>
-        <input
+          <input
             type="text"
             placeholder="Search"
             value={searchInput}
@@ -81,7 +77,6 @@ const Products = () => {
             <option value="Outerwear">Outerwear</option>
             <option value="Shoes">Shoes</option>
             <option value="Miscellaneous">Miscellaneous</option>
-            {/* Add more categories as needed */}
           </select>
           <select onChange={(e) => setPriceFilter(e.target.value)} className='custom-select'>
             <option value="0">Price</option>
@@ -89,7 +84,6 @@ const Products = () => {
             <option value="10">$10 and Under</option>
             <option value="15">$15 and Under</option>
             <option value="20">$20 and Under</option>
-            {/* Add more categories as needed */}
           </select>
           <select onChange={(e) => setSizeFilter(e.target.value)} className='custom-select'>
             <option value="">Size</option>
@@ -99,7 +93,6 @@ const Products = () => {
             <option value="L">L</option>
             <option value="XL">XL</option>
             <option value="XXL">XXL</option>
-            {/* Add more categories as needed */}
           </select>
           <select onChange={(e) => setColorFilter(e.target.value)} className='custom-select3'>
             <option value="">Color</option>
@@ -112,7 +105,6 @@ const Products = () => {
             <option value="White">White</option>
             <option value="Black">Black</option>
             <option value="Multi">Multi</option>
-            {/* Add more categories as needed */}
           </select>
         </div>
         <div className="tiles-wrapper">
@@ -120,13 +112,11 @@ const Products = () => {
             {filteredProducts.map((product) => (
               <Tile
                 key={product.id}
+                id={product.id}
                 name={product.name}
-                description={product.description}
-                category={product.category}
                 price={product.price}
                 size={product.size}
                 date={product.date}
-                color={product.color}
                 image={product.imageUrl}
               />
             ))}

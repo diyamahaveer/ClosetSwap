@@ -95,3 +95,9 @@
     font-size: 20px; /* Increased font size for better visibility */
     font-weight: bold; /* Makes the text bold */
   }
+
+  .tile-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

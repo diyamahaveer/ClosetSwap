@@ -18,7 +18,7 @@ const ProductDetail = () => {
         const { data, error } = await supabase
           .from('Products')
           .select('*')
-          .eq('name', id) // Ensure that 'name' is the correct column to filter by. If it's an ID, use 'id' instead.
+          .eq('name', id)
           .maybeSingle();
 
         if (error) throw error;

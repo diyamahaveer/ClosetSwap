@@ -16,10 +16,9 @@
 }
 
 .fav-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative; /* Add this line */
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 
 .fav-content-center {
@@ -57,17 +56,4 @@ font-size: 30px;
     font-weight: bold;
   }
   
-  .favorites-list {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Continues to create a 5-column grid */
-    gap: 30px; /* Increased the gap size for more space between grid items */
-    justify-items: center; /* Centers items along the row */
-    width: 100%; /* Ensures the grid takes the full container width */
-    padding: 30px; /* Adds padding around the grid for more space from container edges */
-  }
-  
-  
-  
-  
 
-  

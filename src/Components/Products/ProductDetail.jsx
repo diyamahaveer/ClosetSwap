@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../../supabaseClient';
 import defaultImage from '../Assets/product_1.jpeg';
-import './ProductDetail.css';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -18,24 +17,26 @@ const ProductDetail = () => {
         const { data, error } = await supabase
           .from('Products')
           .select('*')
-          .eq('name', id) // Ensure that 'name' is the correct column to filter by. If it's an ID, use 'id' instead.
+          .eq('name', id)
           .maybeSingle();
 
-        if (error) throw error;
-
-        if (!data) {
-          setError('No product found');
-          return; // Early return if no data
+        if (error) {
+          throw error;
         }
 
-        setProduct({
-          ...data,
-          imageUrl: data.image_url ? 
-            `https://ioudgjxgfrgkeoqvyyuh.supabase.co/storage/v1/object/public/image/${data.image_url}` 
-            : defaultImage
-        });
-      } catch (err) {
-        setError('Error fetching product details: ' + err.message);
+        if (data) {
+          setProduct({
+            ...data,
+            imageUrl: data.image_url 
+              ? `https://ioudgjxgfrgkeoqvyyuh.supabase.co/storage/v1/object/public/image/${data.image_url}` 
+              : defaultImage
+          });
+        } else {
+          // Handle the case where data is null (no product found)
+          setError('No product found');
+        }
+      } catch (error) {
+        setError('Error fetching product details: ' + error.message);
       } finally {
         setLoading(false);
       }
@@ -44,6 +45,7 @@ const ProductDetail = () => {
     fetchProduct();
   }, [id]);
 
+<<<<<<< HEAD
   const addToFavorites = () => {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     favorites.push(product);
@@ -57,12 +59,23 @@ const ProductDetail = () => {
     localStorage.setItem('carts', JSON.stringify(carts));
     navigate('/cart'); // Navigate to the cart page
   };
+=======
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+>>>>>>> parent of 5f8a01f (add favorites component)
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
-  if (!product) return <div>Product not found.</div>;
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  // Ensure product is not null before trying to access its properties
+  if (!product) {
+    return <div>Product not found.</div>;
+  }
 
   return (
+<<<<<<< HEAD
     <div className="product-detail-container">
       <button className="add-to-favorites-button" onClick={addToFavorites}>Add to Favorites</button>
       <button className="add-to-cart-button" onClick={addToCart}>Add to Cart</button>
@@ -76,6 +89,16 @@ const ProductDetail = () => {
         <p>Size: {product.size}</p>
         <p>Color: {product.color}</p>
       </div>
+=======
+    <div className="product-detail">
+      <img src={product.imageUrl} alt={product.name} />
+      <h2>{product.name}</h2>
+      <p>{product.description}</p>
+      <p>Price: ${product.price}</p>
+      <p>Size: {product.size}</p>
+      <p>Color: {product.color}</p>
+      {/* Add more details as needed */}
+>>>>>>> parent of 5f8a01f (add favorites component)
     </div>
   );
 };

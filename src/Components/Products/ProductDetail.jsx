@@ -45,7 +45,6 @@ const ProductDetail = () => {
     fetchProduct();
   }, [id]);
 
-<<<<<<< HEAD
   const addToFavorites = () => {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     favorites.push(product);
@@ -59,11 +58,6 @@ const ProductDetail = () => {
     localStorage.setItem('carts', JSON.stringify(carts));
     navigate('/cart'); // Navigate to the cart page
   };
-=======
-  if (loading) {
-    return <div>Loading...</div>;
-  }
->>>>>>> parent of 5f8a01f (add favorites component)
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -75,7 +69,6 @@ const ProductDetail = () => {
   }
 
   return (
-<<<<<<< HEAD
     <div className="product-detail-container">
       <button className="add-to-favorites-button" onClick={addToFavorites}>Add to Favorites</button>
       <button className="add-to-cart-button" onClick={addToCart}>Add to Cart</button>
@@ -89,16 +82,6 @@ const ProductDetail = () => {
         <p>Size: {product.size}</p>
         <p>Color: {product.color}</p>
       </div>
-=======
-    <div className="product-detail">
-      <img src={product.imageUrl} alt={product.name} />
-      <h2>{product.name}</h2>
-      <p>{product.description}</p>
-      <p>Price: ${product.price}</p>
-      <p>Size: {product.size}</p>
-      <p>Color: {product.color}</p>
-      {/* Add more details as needed */}
->>>>>>> parent of 5f8a01f (add favorites component)
     </div>
   );
 };
